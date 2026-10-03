@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An interactive playground of browser animation techniques." />
+    <title>Bella's Animation Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="playground-page">
+    <main class="playground-shell">
+      <nav class="site-nav playground-nav" aria-label="Main navigation">
+        <span class="playground-mark">Bella's Animation Lab</span>
+      </nav>
+      <section class="ui-showcase" aria-label="UI animation patterns">
+        <div class="showcase-heading"><h2 class="showcase-title-words"><span>Small</span> <span>Details</span> <span>with</span> <span>Feeling</span></h2><p>Browse practical motion patterns by category.</p></div>
+        <nav class="showcase-tabs" aria-label="Pattern categories"><button class="is-active" data-showcase="buttons">Buttons</button><button data-showcase="nav">Nav links</button><button data-showcase="cards">Cards</button><button data-showcase="tabs">Tabs</button><button data-showcase="text">Text</button></nav>
+        <div class="showcase-panel is-active" data-panel="buttons"><div class="button-row"><button class="sample-button button-fill">Hover me <span>↗</span></button><button class="sample-button button-line">Slide over <span>→</span></button><button class="sample-button button-circle" aria-label="Add">+</button><button class="sample-button button-magnetic">Click me <span>✦</span></button></div></div>
+        <div class="showcase-panel" data-panel="nav"><div class="sample-nav"><a href="#">Journal <span>01</span></a><a href="#">Places <span>02</span></a><a href="#">About <span>03</span></a></div></div>
+        <div class="showcase-panel" data-panel="cards"><div class="sample-cards"><article><small>01 / eat</small><h3>A slow lunch</h3><span>Read note ↗</span></article><article><small>02 / wander</small><h3>Walk until golden hour</h3><span>Read note ↗</span></article><article><small>03 / pause</small><h3>One table for one</h3><span>Read note ↗</span></article></div></div>
+        <div class="showcase-panel" data-panel="tabs"><div class="mini-tabs"><button class="is-active">Hover</button><button>Click</button><button>Scroll</button><p>One component can carry multiple moods. The active marker glides instead of snapping.</p></div></div>
+        <div class="showcase-panel" data-panel="text"><div class="text-samples"><p class="text-sample-underline">Underline that follows</p><p class="text-sample-split"><span>Make</span> <span>an</span> <span>entrance</span></p><p class="text-sample-marquee">still exploring · still exploring · still exploring ·</p></div></div>
+        
+      </section>
+
+      <section id="experiments" class="experiment-grid" aria-label="Animation experiments">
+        <article class="experiment-card card-hover" data-tags="hover css" data-command="请把这个卡片加入网站：鼠标悬停时向上移动 8px，阴影变深，过渡要有柔和的 ease-out 回弹感。">
+          <div class="experiment-meta"><span>01 / hover</span><code>transform + transition</code></div>
+          <h2>Soft landing</h2><p>Move over the card to lift it off the page.</p>
+          <div class="demo demo-lift"><span>hover me</span><i>↗</i></div>
+        </article>
+        <article class="experiment-card" data-tags="click css" data-command="请给这个按钮加入一次性 bounce 点击动画，点击时上移、轻微旋转，再自然回到原位。">
+          <div class="experiment-meta"><span>02 / click</span><code>@keyframes</code></div>
+          <h2>One little bounce</h2><p>Keyframes choreograph a repeatable entrance.</p>
+          <button class="demo demo-bounce" type="button"><span>bounce</span><i>✦</i></button>
+        </article>
+        <article class="experiment-card" data-tags="pointer css" data-command="请加入一个跟随鼠标的圆点，使用柔和延迟跟随指针移动，并限制在这个容器内部。">
+          <div class="experiment-meta"><span>03 / pointer</span><code>springy physics</code></div>
+          <h2>Follow the cursor</h2><p>A dot trails your pointer with a soft spring.</p>
+          <div class="demo demo-follow" data-follow><span>move here</span><b></b></div>
+        </article>
+        <article class="experiment-card" data-tags="pointer css" data-command="请让这个便签可以用鼠标拖拽，拖动时增加阴影，松开后带一点弹性回到稳定位置。">
+          <div class="experiment-meta"><span>04 / drag</span><code>pointer events</code></div>
+          <h2>Pick it up</h2><p>Drag the little note around its paper.</p>
+          <div class="demo demo-drag" data-drag><span>drag me</span><i>✎</i></div>
+        </article>
+        <article class="experiment-card" data-tags="scroll css" data-command="请让这组文字在滚动进入视口时逐词出现，每个词延迟 100ms，并支持 prefers-reduced-motion。">
+          <div class="experiment-meta"><span>05 / scroll</span><code>IntersectionObserver</code></div>
+          <h2>Reveal in rhythm</h2><p>Scroll to see each word arrive in sequence.</p>
+          <div class="demo demo-words" data-words><span>make</span><span>space</span><span>for</span><span>magic</span></div>
+        </article>
+        <article class="experiment-card" data-tags="svg css" data-command="请让这条 SVG 路径在进入视口时从左到右绘制出来，使用 stroke-dashoffset 实现。">
+          <div class="experiment-meta"><span>06 / svg</span><code>stroke-dashoffset</code></div>
+          <h2>Draw a path</h2><p>An SVG line can sketch itself into view.</p>
+          <div class="demo demo-draw"><svg viewBox="0 0 280 100" aria-label="Animated hand drawn line"><path d="M8 70 C48 10 78 88 115 45 S184 14 214 55 S252 78 272 25" /></svg></div>
+        </article>
+        <article class="experiment-card" data-tags="css hover" data-command="请给这个背景加入缓慢流动的渐变动画，颜色保持网站的暖色调。">
+          <div class="experiment-meta"><span>07 / gradient</span><code>background-position</code></div>
+          <h2>Liquid colour</h2><p>Gradients can drift without moving the object.</p>
+          <div class="demo demo-gradient"><span>slow afternoon</span></div>
+        </article>
+        <article class="experiment-card" data-tags="3d hover css" data-command="请给这个卡片加入基于鼠标位置的 3D tilt，使用 perspective，离开时平滑恢复正面。">
+          <div class="experiment-meta"><span>08 / 3D</span><code>perspective + tilt</code></div>
+          <h2>A little dimension</h2><p>Move over the tile to tilt it in space.</p>
+          <div class="demo demo-tilt" data-tilt><div>hello<br /><em>world</em></div></div>
+        </article>
+        <article class="experiment-card" data-tags="css" data-command="请给这个 loading 状态加入 shimmer 光带和轻微 pulse，让等待状态看起来安静而有节奏。">
+          <div class="experiment-meta"><span>09 / loading</span><code>shimmer + pulse</code></div>
+          <h2>Wait for it</h2><p>Loading can feel calm, not empty.</p>
+          <div class="demo demo-loading"><span></span><span></span><span></span></div>
+        </article>
+        <article class="experiment-card" data-tags="hover css" data-command="请给这个图像或卡片加入 hover tooltip：光标靠近时显示一段说明文字，出现和消失都要有淡入淡出。">
+          <div class="experiment-meta"><span>10 / tooltip</span><code>content reveal</code></div><h2>Say a little more</h2><p>Reveal context only when someone asks for it.</p><div class="demo demo-tooltip"><span>hover the dot</span><b>small note</b></div>
+        </article>
+        <article class="experiment-card" data-tags="click css" data-command="请给这个按钮加入 click ripple 水波纹，水波从点击位置扩散，并在动画结束后清除。">
+          <div class="experiment-meta"><span>11 / feedback</span><code>ripple effect</code></div><h2>Ripple feedback</h2><p>A tiny wave confirms the click.</p><button class="demo demo-ripple" type="button">click anywhere</button>
+        </article>
+        <article class="experiment-card" data-tags="scroll css" data-command="请给这个页面加入滚动进度条，随着页面滚动从左到右填充，并支持原生 scroll-driven animation。">
+          <div class="experiment-meta"><span>12 / scroll</span><code>progress timeline</code></div><h2>Keep your place</h2><p>A progress line quietly tracks the story.</p><div class="demo demo-progress"><i></i><span>scroll progress</span></div>
+        </article>
+        <article class="experiment-card" data-tags="hover 3d css" data-command="请给这个图片列表加入 parallax hover：前景和背景以不同速度移动，制造轻微景深。">
+          <div class="experiment-meta"><span>13 / depth</span><code>parallax layers</code></div><h2>Two speeds</h2><p>Separate layers make a flat image feel deep.</p><div class="demo demo-parallax"><i></i><b>slow / fast</b></div>
+        </article>
+        <article class="experiment-card" data-tags="click css" data-command="请给这个通知加入 toast 动画：从右下角滑入，停留后淡出，并让用户可以点击关闭。">
+          <div class="experiment-meta"><span>14 / toast</span><code>state feedback</code></div><h2>A gentle reminder</h2><p>Useful feedback can arrive without interrupting.</p><button class="demo demo-toast" type="button">show toast <span>✓ saved</span></button>
+        </article>
+        <article class="experiment-card" data-tags="hover css" data-command="请给这段标题加入 glitch 文字效果，只在 hover 时短暂错位，并保持阅读清晰。">
+          <div class="experiment-meta"><span>15 / type</span><code>glitch offset</code></div><h2>Not quite still</h2><p>A controlled glitch adds a little electricity.</p><div class="demo demo-glitch" data-text="glitch me">glitch me</div>
+        </article>
+      </section>
+
+      <footer class="site-footer"><p>Made with CSS, SVG and a little curiosity.</p><p>Animation Lab · 2026</p></footer>
+    </main>
+    <script>
+      const body = document.body;
+      document.querySelector('.demo-bounce').addEventListener('click', (event) => { event.currentTarget.classList.remove('is-bouncing'); requestAnimationFrame(() => event.currentTarget.classList.add('is-bouncing')); });
+      const follow = document.querySelector('[data-follow]');
+      follow.addEventListener('pointermove', (event) => { const box = follow.getBoundingClientRect(); follow.style.setProperty('--x', `${event.clientX - box.left}px`); follow.style.setProperty('--y', `${event.clientY - box.top}px`); });
+      const drag = document.querySelector('[data-drag]'); let dragging = false;
+      drag.addEventListener('pointerdown', (event) => { dragging = true; drag.setPointerCapture(event.pointerId); drag.classList.add('is-dragging'); });
+      drag.addEventListener('pointermove', (event) => { if (!dragging) return; const box = drag.parentElement.getBoundingClientRect(); drag.style.setProperty('--drag-x', `${event.clientX - box.left - box.width / 2}px`); drag.style.setProperty('--drag-y', `${event.clientY - box.top - box.height / 2}px`); });
+      drag.addEventListener('pointerup', () => { dragging = false; drag.classList.remove('is-dragging'); });
+      const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')), { threshold: .45 });
+      document.querySelectorAll('[data-words]').forEach((item) => observer.observe(item));
+      document.querySelectorAll('[data-tilt]').forEach((tile) => tile.addEventListener('pointermove', (event) => { const box = tile.getBoundingClientRect(); tile.style.setProperty('--rx', `${(event.clientY - box.top - box.height / 2) / 8}deg`); tile.style.setProperty('--ry', `${(event.clientX - box.left - box.width / 2) / -8}deg`); }));
+      document.querySelectorAll('[data-tilt]').forEach((tile) => tile.addEventListener('pointerleave', () => { tile.style.setProperty('--rx', '0deg'); tile.style.setProperty('--ry', '0deg'); }));
+      const showcaseButtons = document.querySelectorAll('[data-showcase]');
+      const showcasePanels = document.querySelectorAll('[data-panel]');
+      showcaseButtons.forEach((button) => button.addEventListener('click', () => { showcaseButtons.forEach((item) => item.classList.toggle('is-active', item === button)); showcasePanels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.panel === button.dataset.showcase)); }));
+      document.querySelectorAll('.mini-tabs button').forEach((button) => button.addEventListener('click', () => document.querySelectorAll('.mini-tabs button').forEach((item) => item.classList.toggle('is-active', item === button))));
+      document.querySelectorAll('[data-library-command]').forEach((button) => button.addEventListener('click', async () => { await navigator.clipboard.writeText(button.dataset.libraryCommand); button.textContent = '已复制'; setTimeout(() => { button.textContent = '复制调用指令'; }, 1200); }));
+      const patternCommands = { buttons: '请给这个界面加入一组有层次的按钮动画：悬停时填充、滑动或改变阴影，点击时保留清晰的反馈。', nav: '请给这组导航链接加入 hover 下划线展开动画，并让箭头和编号产生轻微位移。', cards: '请把这组内容做成错落卡片，悬停时卡片上移、放大一点并改变背景色。', tabs: '请实现一组带 active indicator 的 tabs，点击切换内容时让指示线平滑滑动。', text: '请给这段文字加入逐词出现、下划线展开或 marquee 动画，并支持减少动态效果设置。' };
+      document.querySelectorAll('.showcase-panel').forEach((panel) => { const recipe = document.createElement('div'); recipe.className = 'pattern-recipe'; recipe.innerHTML = `<span>${panel.dataset.panel} / 调用指令</span><button type="button">复制</button><p></p>`; recipe.querySelector('p').textContent = patternCommands[panel.dataset.panel]; recipe.querySelector('button').addEventListener('click', async () => { await navigator.clipboard.writeText(patternCommands[panel.dataset.panel]); recipe.querySelector('button').textContent = '已复制'; setTimeout(() => { recipe.querySelector('button').textContent = '复制'; }, 1200); }); panel.append(recipe); });
+      document.querySelector('.demo-ripple').addEventListener('click', (event) => { const dot = document.createElement('i'); const box = event.currentTarget.getBoundingClientRect(); dot.style.left = `${event.clientX - box.left}px`; dot.style.top = `${event.clientY - box.top}px`; event.currentTarget.append(dot); setTimeout(() => dot.remove(), 650); });
+      document.querySelector('.demo-toast').addEventListener('click', (event) => { event.currentTarget.classList.remove('is-showing'); requestAnimationFrame(() => event.currentTarget.classList.add('is-showing')); });
+      const filterTags = document.querySelectorAll('[data-filter]');
+      const experimentCards = document.querySelectorAll('.experiment-card');
+      filterTags.forEach((tag) => tag.addEventListener('click', () => { const filter = tag.dataset.filter; filterTags.forEach((item) => item.classList.toggle('is-active', item === tag)); experimentCards.forEach((card) => { const matches = filter === 'all' || card.dataset.tags.split(' ').includes(filter); card.classList.toggle('is-filtered-out', !matches); }); }));
+      experimentCards.forEach((card) => { const recipe = document.createElement('div'); recipe.className = 'animation-recipe'; recipe.innerHTML = `<span>调用指令</span><button type=\"button\">复制</button><p></p>`; recipe.querySelector('p').textContent = card.dataset.command; recipe.querySelector('button').addEventListener('click', async () => { await navigator.clipboard.writeText(card.dataset.command); recipe.querySelector('button').textContent = '已复制'; setTimeout(() => { recipe.querySelector('button').textContent = '复制'; }, 1200); }); card.append(recipe); });
+    </script>
+  </body>
+</html>
